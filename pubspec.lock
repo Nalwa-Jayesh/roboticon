@@ -9,14 +9,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
-  basic_utils:
-    dependency: "direct main"
-    description:
-      name: basic_utils
-      sha256: "371ba60b06991d727ab0a1b0c7a9b2124f577d2d6736646c7b11efc3927a4798"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.7.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -41,6 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  chewie:
+    dependency: "direct main"
+    description:
+      name: chewie
+      sha256: "7343cffa40ce9d42b37f2869f17b5e5fa681fb329d8385869ce279e03193e2b7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   clock:
     dependency: transitive
     description:
@@ -57,22 +57,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
-  convert:
-    dependency: transitive
-    description:
-      name: convert
-      sha256: "3fa83bc417e26f1d55814443a603747d48e3cdf55b2f4fea27dea8e9224dcefd"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   crypto:
     dependency: transitive
     description:
       name: crypto
-      sha256: "3ce628f3c6a7144be6c524dbb20ca5af52fa59c850c587bf5e52cd70ece8e7e8"
+      sha256: ff625774173754681d66daaf4a448684fb04b78f902da9cb3d308c19cc5e8bab
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.5"
+    version: "3.0.3"
+  csslib:
+    dependency: transitive
+    description:
+      name: csslib
+      sha256: "706b5707578e0c1b4b7550f64078f0a0f19dec3f50a178ffae7006b0a9ca58fb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -149,6 +149,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.12+1"
+  html:
+    dependency: transitive
+    description:
+      name: html
+      sha256: "3a7812d5bcd2894edf53dfaf8cd640876cf6cef50a8f238745c8b8120ea74d3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.15.4"
   http:
     dependency: transitive
     description:
@@ -181,14 +189,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.5"
-  json_annotation:
-    dependency: transitive
-    description:
-      name: json_annotation
-      sha256: "6cec7404b25d6338c8cb7b30131cd6c760079a4ec1fa7846c55bdda91f9d2819"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.1"
   lints:
     dependency: transitive
     description:
@@ -205,14 +205,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.6+9"
-  logging:
-    dependency: transitive
-    description:
-      name: logging
-      sha256: "239402c239e2a390cf745af3a496fb985dc8f0b31b3f5fe0d460e42289d33ad7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.11.4"
   matcher:
     dependency: transitive
     description:
@@ -325,14 +317,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
-  petitparser:
-    dependency: transitive
-    description:
-      name: petitparser
-      sha256: fe07f9345bf03ff0c881d1f5494e20cc40206780ca5dea86aab8037cb49af5f2
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0"
   platform:
     dependency: transitive
     description:
@@ -349,14 +333,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.3"
-  pointycastle:
-    dependency: transitive
-    description:
-      name: pointycastle
-      sha256: "8c8d9941ab022153b2abdc40ae882dd3e6e8b482688b9581612d56c5d59fa787"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.1"
   process:
     dependency: transitive
     description:
@@ -373,15 +349,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.3.3"
-  ros_nodes:
+  roslibdart:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "1534a4e29f13d4f8c644f639f7257a1e20c345ab"
-      url: "https://github.com/Sashiri/ros_nodes.git"
-    source: git
-    version: "0.1.0"
+      name: roslibdart
+      sha256: "7473a39947f3f5ee32b032f8bab5285a465449e5cd234ae486e5ea11bd6c9e3b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1-dev+4"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -443,6 +418,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  sprintf:
+    dependency: transitive
+    description:
+      name: sprintf
+      sha256: "1fc9ffe69d4df602376b52949af107d8f5703b77cda567c4d7d86a0693120f23"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   stack_trace:
     dependency: transitive
     description:
@@ -495,10 +478,10 @@ packages:
     dependency: "direct main"
     description:
       name: uuid
-      sha256: bd96a5d86e807b44cac699f9735ef29d1e3354a96f4b2f7152000bae4c6d81b0
+      sha256: b715b8d3858b6fa9f68f87d20d98830283628014750c2b09b6f516c1da4af2a7
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.2"
+    version: "4.1.0"
   vector_math:
     dependency: transitive
     description:
@@ -507,6 +490,94 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  video_player:
+    dependency: "direct main"
+    description:
+      name: video_player
+      sha256: "743b57d45251101344057d3b886a5f9a4fbb3eb3e275ac8bb64c3a7fa0c79d4c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.19"
+  video_player_android:
+    dependency: transitive
+    description:
+      name: video_player_android
+      sha256: b41889c6bc9eaf51790863885349fb5ff8edef2da940291a2da96b80dd649686
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.4"
+  video_player_avfoundation:
+    dependency: transitive
+    description:
+      name: video_player_avfoundation
+      sha256: "90468226c8687adf7b567d9bb42c25588783c4d30509af1fbd663b2dd049f700"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.2"
+  video_player_platform_interface:
+    dependency: transitive
+    description:
+      name: video_player_platform_interface
+      sha256: a1d56477752271a7a0de872d8962bce1dd5fecf463beaf66da417ebebb9ba0f7
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.0"
+  video_player_web:
+    dependency: transitive
+    description:
+      name: video_player_web
+      sha256: fb3bbeaf0302cb0c31340ebd6075487939aa1fe3b379d1a8784ef852b679940e
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.15"
+  wakelock:
+    dependency: transitive
+    description:
+      name: wakelock
+      sha256: da22c0789e1f849bec43688a52f2290f4e66268056f7cd77cb71245aef4917a0
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.6"
+  wakelock_macos:
+    dependency: transitive
+    description:
+      name: wakelock_macos
+      sha256: "047c6be2f88cb6b76d02553bca5a3a3b95323b15d30867eca53a19a0a319d4cd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
+  wakelock_platform_interface:
+    dependency: transitive
+    description:
+      name: wakelock_platform_interface
+      sha256: "1f4aeb81fb592b863da83d2d0f7b8196067451e4df91046c26b54a403f9de621"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
+  wakelock_web:
+    dependency: transitive
+    description:
+      name: wakelock_web
+      sha256: "1b256b811ee3f0834888efddfe03da8d18d0819317f20f6193e2922b41a501b5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
+  wakelock_windows:
+    dependency: transitive
+    description:
+      name: wakelock_windows
+      sha256: "108b1b73711f1664ee462e73af34a9286ff496e27d4d8371e2fb4da8fde4cdac"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
+  web_socket_channel:
+    dependency: transitive
+    description:
+      name: web_socket_channel
+      sha256: d88238e5eac9a42bb43ca4e721edba3c08c6354d4a53063afaa568516217621b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
   win32:
     dependency: transitive
     description:
@@ -523,31 +594,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.2"
-  xml:
-    dependency: transitive
-    description:
-      name: xml
-      sha256: a11fbb305f75dd200c96d3fd13f9fdb4bc8d8dcdb5331f6ba15c57acb950ef09
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.7.0"
-  xml_rpc:
-    dependency: transitive
-    description:
-      name: xml_rpc
-      sha256: b1cb9324ea26006ef0d8cfb23f0168d659652ad2f1fcd11983840e8dfa455011
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.4"
-  xmlrpc_server:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "35b112f851a5c479dac2720637ef566b291c658c"
-      url: "https://github.com/Sashiri/xmlrpc_server.git"
-    source: git
-    version: "0.0.1"
 sdks:
   dart: ">=2.19.6 <3.0.0"
-  flutter: ">=1.20.0"
+  flutter: ">=3.3.0"
