@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:roboticon/constants.dart';
 import 'package:roboticon/video_items.dart';
@@ -55,6 +56,9 @@ void connect() async {
 
   Future<void> subscribeHandler(Map<String, dynamic> msg) async {
     var msgReceived = json.encode(msg);
+    if (kDebugMode) {
+      print(msgReceived);
+    }
   }
   await chatter.subscribe(subscribeHandler);
 }
