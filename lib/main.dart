@@ -31,12 +31,34 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late RosConnect _connect;
+  VideoPlayerController _videoPlayerController =
+      VideoPlayerController.asset(AppConstants.angryVid);
 
   @override
   void initState() {
     super.initState();
     _connect = RosConnect();
     _connect.initConnection();
+    _connect.subscribeToMessages((message) {
+      updateVideo(message);
+    });
+  }
+
+  void updateVideo(String message) {
+    switch (message) {
+      case 'angry':
+        _videoPlayerController = VideoPlayerController.asset(AppConstants.angryVid);
+        break;
+      case 'bored':
+        _videoPlayerController = VideoPlayerController.asset(AppConstants.boredVid);
+        break;
+      default:
+        _videoPlayerController = VideoPlayerController.asset(AppConstants.defaultVid);
+        break;
+    }
+    _videoPlayerController.initialize().then((_) {
+      setState(() {});
+    });
   }
 
   @override
@@ -46,9 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: <Widget>[
           VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
-              AppConstants.angryVid,
-            ),
+            videoPlayerController: _videoPlayerController,
             looping: true,
             autoplay: true,
           ),
