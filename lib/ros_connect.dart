@@ -24,9 +24,11 @@ class RosConnect {
 
   Future<void> subscribeHandler(Map<String, dynamic> msg) async {
     var msgReceived = json.encode(msg);
+    var result = jsonDecode(msgReceived)["data"];
     if (kDebugMode) {
-      print(msgReceived);
+      print(result);
     }
+    return result;
   }
 
   void initConnection() async {

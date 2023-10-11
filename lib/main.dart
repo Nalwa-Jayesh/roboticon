@@ -46,9 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: <Widget>[
           VideoItems(
-
             videoPlayerController: VideoPlayerController.asset(
-
               AppConstants.angryVid,
             ),
             looping: true,
