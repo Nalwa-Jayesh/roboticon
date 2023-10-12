@@ -31,12 +31,62 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late RosConnect _connect;
+  late VideoPlayerController _currentVideoController;
 
   @override
   void initState() {
     super.initState();
     _connect = RosConnect();
     _connect.initConnection();
+
+    // Initialize the video controller with the default video (e.g., 'angryVid').
+    _currentVideoController = VideoPlayerController.asset(AppConstants.angryVid);
+    _currentVideoController.initialize().then((_) {
+      _currentVideoController.play();
+      _currentVideoController.setLooping(true);
+    });
+
+    // Listen to ROS messages and switch videos accordingly.
+    _connect.chatter.subscribe((message) {
+      // Assuming that the message contains a string, e.g., 'angry' or 'bored'.
+      String mood = message['data'];
+      switchVideoBasedOnMood(mood);
+      return Future.value();
+    });
+  }
+
+  void switchVideoBasedOnMood(String mood) {
+    String videoAssetPath;
+
+    // Determine the video asset to display based on the mood.
+    if (mood == 'angry') {
+      videoAssetPath = AppConstants.angryVid;
+    } else if (mood == 'bored') {
+      videoAssetPath = AppConstants.boredVid;
+    } else {
+      // Default video if mood is unknown.
+      videoAssetPath = AppConstants.defaultVid;
+    }
+
+    // Switch to the new video.
+    _currentVideoController.pause();
+    VideoPlayerController newController = VideoPlayerController.asset(videoAssetPath);
+
+    newController.initialize().then((_) {
+      setState(() {
+        _currentVideoController.dispose();
+        _currentVideoController = newController;
+        _currentVideoController.play();
+        _currentVideoController.setLooping(true);
+      });
+    }).catchError((error) {
+      print('Error initializing video: $error');
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -46,11 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: <Widget>[
           VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
-              AppConstants.angryVid,
-            ),
-            looping: true,
-            autoplay: true,
+            videoPlayerController: _currentVideoController,
           ),
         ],
       ),

@@ -10,8 +10,8 @@ class VideoItems extends StatefulWidget {
 
   VideoItems({
     required this.videoPlayerController,
-    required this.looping,
-    required this.autoplay,
+    this.looping = true,
+    this.autoplay = true,
     Key? key,
   }) : super(key: key);
 
