@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:roboticon/constants.dart';
 
 import 'package:video_player/video_player.dart';
@@ -6,6 +7,11 @@ import 'package:roslibdart/roslibdart.dart';
 import 'dart:convert';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeRight,
+    DeviceOrientation.landscapeLeft,
+  ]);
   runApp(const MyApp());
 }
 
@@ -14,6 +20,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
@@ -34,14 +41,14 @@ class _HomeScreenState extends State<HomeScreen> {
   late Ros ros;
   late Topic chatter;
   var message = "";
-  var path = null;
+  var path = "";
 
   void initConnection() async {
     ros.connect();
     await chatter.subscribe(subscribeHandler);
     print("connected");
   }
-  Future<void > subscribeHandler(Map<String, dynamic> msg) async {
+  Future<void> subscribeHandler(Map<String, dynamic> msg) async {
     var msgReceived = json.encode(msg);
     var result = jsonDecode(msgReceived)["data"];
     setState(() {
@@ -64,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
   void initRos() {
-    ros = Ros(url: 'ws://192.168.0.22:9090');
+    ros = Ros(url: 'ws://192.168.65.4:9090');
     chatter = Topic(
       ros: ros,
       name: '/mood',
@@ -85,24 +92,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: path == null
-          ? ListView(
-            children: <Widget>[
-              Image.asset(
-                  path,
-              ),
-            ],
-      )
-          :
-      ListView(
-        children: <Widget>[
-          Image.asset(
-              path,
-          )
-        ],
-      ),
-    );
+      return  Scaffold(
+        backgroundColor: Colors.black,
+        body: ListView(
+          children: <Widget>[
+            MyImageWidget(path)
+          ],
+        ),
+      );
+  }
+}
+
+class MyImageWidget extends StatelessWidget {
+  final String? path;
+
+  const MyImageWidget(this.path, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(path ?? ''); // Use the provided path here
   }
 }
